@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SQLALCHEMY_DATABASE_URL: "postgresql+psycopg2://cloud_user:&S8KuD3Gy3Gt@nasasupi.beget.app/chat_db"
