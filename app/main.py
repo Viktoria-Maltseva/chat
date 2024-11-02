@@ -13,7 +13,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 app = FastAPI()
 
-
 database.create_tables_if_not_exists(database.engine)
 
 
@@ -151,14 +150,17 @@ async def channel_chat(websocket: WebSocket, channel_name: str = Query(...), tok
 
             for conn in connected_users[channel.id]:
                 await conn.send_text(f"[{timestamp}] {username}: {data}")
-            # Отправка обратно для подтверждения
-            #await websocket.send_text(f"[{timestamp}] Сообщение от {username}: {data}")
     except WebSocketDisconnect:
         logging.info(f"Пользователь {username} отключился от канала {channel_name}")
+        connection_closed = True
     except Exception as e:
-        print("Ошибка:", e)
+        logging.error(f"Ошибка: {e}")
+        connection_closed = True
     finally:
-        await websocket.close()
+        if websocket in connected_users.get(channel.id, []):
+            connected_users[channel.id].remove(websocket)
+        if not connection_closed:
+            await websocket.close()
 
 
 # Получение истории сообщений в канале
