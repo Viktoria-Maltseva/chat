@@ -163,18 +163,6 @@
 				"header": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6Im5ld3VzZXIiLCJleHAiOjE3MzA1MzA2NTR9.5UhvcVPkEdfLBY4olo2BxVQG5PcAcu31yxWCSKzJ6VU",
-						"type": "text",
-						"disabled": true
-					},
-					{
-						"key": "channel-name",
-						"value": "чатттт",
-						"type": "text",
-						"disabled": true
-					},
-					{
-						"key": "token",
 						"value": "{{token_user1}}",
 						"type": "text"
 					}
@@ -188,25 +176,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:8000/channels/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"channels",
-						"create"
-					],
-					"query": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ1c2VybmFtZSI6Im5ld3VzZXIiLCJleHAiOjE3MzA1MzAzMjR9.InS5Lq9Or6OSk4ik8ptiq54B-J_rpaDtx-7emjkJmTo",
-							"disabled": true
-						}
-					]
-				}
+				"url": "http://localhost:8000/channels/create"
 			},
 			"response": []
 		},
